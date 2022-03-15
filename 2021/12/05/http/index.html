@@ -1,0 +1,1734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="http学习,request,response," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、http概念 概念：超文本传输协议（Hyper Text Transfer Protocol，HTTP）是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。   特点 基于tcp&#x2F;ip协议 默认端口号：80 基于请求响应模型：一次请求对应一次响应 无状态的：每次请求间相互独立，不能进行信息交互   历史版本 http1.0：每次请">
+<meta property="og:type" content="article">
+<meta property="og:title" content="http">
+<meta property="og:url" content="http://example.com/2021/12/05/http/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、http概念 概念：超文本传输协议（Hyper Text Transfer Protocol，HTTP）是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。   特点 基于tcp&#x2F;ip协议 默认端口号：80 基于请求响应模型：一次请求对应一次响应 无状态的：每次请求间相互独立，不能进行信息交互   历史版本 http1.0：每次请">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2021/12/05/http/1.png">
+<meta property="article:published_time" content="2021-12-05T04:39:35.000Z">
+<meta property="article:modified_time" content="2021-12-06T04:58:33.930Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="http学习">
+<meta property="article:tag" content="request">
+<meta property="article:tag" content="response">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/12/05/http/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/12/05/http/"/>
+
+
+
+
+
+  <title>http | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/05/http/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">http</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-12-05T12:39:35+08:00">
+                2021-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/servlet/" itemprop="url" rel="index">
+                    <span itemprop="name">servlet</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、http概念"><a href="#一、http概念" class="headerlink" title="一、http概念"></a>一、http概念</h3><ul>
+<li>概念：超文本传输协议（Hyper Text Transfer Protocol，HTTP）是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。</li>
+</ul>
+<ul>
+<li>特点<ol>
+<li>基于tcp/ip协议</li>
+<li>默认端口号：80</li>
+<li>基于请求响应模型：一次请求对应一次响应</li>
+<li>无状态的：每次请求间相互独立，不能进行信息交互</li>
+</ol>
+</li>
+<li>历史版本<ol>
+<li>http1.0：每次请求都会新建连接</li>
+<li>http1.1：复用连接，缓存优化等…</li>
+</ol>
+</li>
+</ul>
+<h5 id="1-请求消息数据格式"><a href="#1-请求消息数据格式" class="headerlink" title="1. 请求消息数据格式"></a>1. 请求消息数据格式</h5><ol>
+<li><p>请求行</p>
+<ul>
+<li><p>请求方式 请求url 请求协议/版本</p>
+<p>GET /www.baidu.com HTTP/1.1</p>
+</li>
+<li><p>请求方式</p>
+<ul>
+<li>get：<ol>
+<li>页面传递参数在请求行中</li>
+<li>请求url长度有限制</li>
+</ol>
+</li>
+<li>post：<ol>
+<li>页面传递参数在请求体中</li>
+<li>参数长度无限制</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>请求头</p>
+<ul>
+<li><p>请求头名称：请求头值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1. 浏览器引擎（可以针对解决兼容问题）：User-Agent:内容</span><br><span class="line">2. Referer: https://www.baidu.com/?tn=15007414_5_dg</span><br><span class="line">	告诉服务器，当前请求从哪里来</span><br><span class="line">		1. 防止盗链接</span><br><span class="line">		2. 统计</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>请求空行</p>
+<ul>
+<li>空行</li>
+</ul>
+</li>
+<li><p>请求体（正文）</p>
+<ul>
+<li><p>get方式没有请求体</p>
+</li>
+<li><p>post方式请求体是页面传输的参数</p>
+</li>
+<li>参数名称：请求头值</li>
+</ul>
+</li>
+<li><p>请求字符串：</p>
+</li>
+</ol>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>www.baidu.com</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br><span class="line"><span class="attribute">sec-ch-ua</span><span class="punctuation">: </span>&quot; Not A;Brand&quot;;v=&quot;99&quot;, &quot;Chromium&quot;;v=&quot;96&quot;, &quot;Microsoft Edge&quot;;v=&quot;96&quot;</span><br><span class="line"><span class="attribute">sec-ch-ua-mobile</span><span class="punctuation">: </span>?0</span><br><span class="line"><span class="attribute">sec-ch-ua-platform</span><span class="punctuation">: </span>&quot;Windows&quot;</span><br><span class="line"><span class="attribute">Upgrade-Insecure-Requests</span><span class="punctuation">: </span>1</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.55 Safari/537.36 Edg/96.0.1054.43</span><br><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9</span><br><span class="line"><span class="attribute">Sec-Fetch-Site</span><span class="punctuation">: </span>same-origin</span><br><span class="line"><span class="attribute">Sec-Fetch-Mode</span><span class="punctuation">: </span>navigate</span><br><span class="line"><span class="attribute">Sec-Fetch-User</span><span class="punctuation">: </span>?1</span><br><span class="line"><span class="attribute">Sec-Fetch-Dest</span><span class="punctuation">: </span>document</span><br><span class="line"><span class="attribute">Referer</span><span class="punctuation">: </span>https://www.baidu.com/?tn=15007414_5_dg</span><br><span class="line"><span class="attribute">Accept-Encoding</span><span class="punctuation">: </span>gzip, deflate, br</span><br><span class="line"><span class="attribute">Accept-Language</span><span class="punctuation">: </span>zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6</span><br></pre></td></tr></table></figure>
+<h5 id="2-响应消息数据格式"><a href="#2-响应消息数据格式" class="headerlink" title="2. 响应消息数据格式"></a>2. 响应消息数据格式</h5><ol>
+<li>响应行<ol>
+<li>组成：协议/版本  响应状态码 状态码描述</li>
+<li>响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态。<ol>
+<li>状态码是3位数字</li>
+<li>分类：<ol>
+<li>1xx：这一类型的状态码，代表请求已被接受，需要继续处理。这类响应是临时响应，只包含状态行和某些可选的响应头信息，并以空行结束。</li>
+<li>2xx：这一类型的状态码，代表请求已成功被服务器接收、理解、并接受。</li>
+<li>3xx：这类状态码代表需要客户端采取进一步的操作才能完成请求。通常，这些状态码用来重定向，后续的请求地址（重定向目标）在本次响应的 Location 域中指明。302:重定向，304（访问缓存）</li>
+<li>4xx：请求错误。这类的状态码代表了客户端看起来可能发生了错误，妨碍了服务器的处理。404：资源找不到，405：没有对应的doGet或doPost方法</li>
+<li>5xx/6xx：服务器错误。这类状态码代表了服务器在处理请求的过程中有错误或者异常状态发生，也有可能是服务器意识到以当前的软硬件资源无法完成对请求的处理。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>响应头<ol>
+<li>格式：头名称：值</li>
+<li>常见的头：<ol>
+<li>Content-Type：本次响应体的数据格式和编码格式。</li>
+<li>Content-disposition：服务器告诉客户端以什么格式打开响应体数据<ol>
+<li>值：<ul>
+<li>in-line：默认值，当前页面内打开</li>
+<li>attachment;filename=xxx：以附件形式打开响应体。文件下载</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>响应空行</li>
+<li>响应体（传输的数据）</li>
+</ol>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span></span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/html;charset=UTF-8</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>890</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Mon, 06 Dec 2021 01:41:47 GMT</span><br><span class="line"><span class="attribute">Keep-Alive</span><span class="punctuation">: </span>timeout=20</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>keep-alive</span><br></pre></td></tr></table></figure>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>servlet访问流程</p>
+<p><img src="/2021/12/05/http/1.png" alt></p>
+<ul>
+<li>request对象和response对象是服务器创建，我们进行使用</li>
+<li>request对象获取请求消息</li>
+<li>response对象设置响应消息</li>
+</ul>
+<h5 id="3-request对象"><a href="#3-request对象" class="headerlink" title="3. request对象"></a>3. request对象</h5><ol>
+<li><p>继承结构</p>
+<p>ServletRequest —-接口</p>
+<p>⬆   继承</p>
+<p>HttpServletRequest —-接口</p>
+<p>⬆   实现</p>
+<p>org.apache.catalina.connector.RequestFacade</p>
+</li>
+<li><p>request功能</p>
+<ul>
+<li><p><strong>获取请求消息</strong></p>
+<ul>
+<li><p>获取请求行数据(eg: /demo1/login?name = 神仙)</p>
+<ol>
+<li><p>获取请求方式：get</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getMethod</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>(* 重要)   获取虚拟目录：/demo1</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getContextPath</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取servlet路径：/login</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getServletPath</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取get方式请求参数：name = 神仙</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getQueryString</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>(* 重要)    获取请求uri/url</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String getRequestURI() // /demo1/login</span><br><span class="line">String getRequestURL() // http://localhost/demo1/login</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取协议及版本：http/1.1</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getProtocol</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取客户端ip地址</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getRemoteAddr()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>获取请求头数据</p>
+<ol>
+<li><p><strong>String getHeader(String name)</strong> 以字符串形式返回指定的请求头的值。（<strong>重要</strong>）</p>
+</li>
+<li><p><strong>Enumeration getHeaderNames()</strong> 返回一个枚举，包含在该请求中包含的所有的头名。（了解）</p>
+<p>Enumeration 相当于迭代器</p>
+<ul>
+<li>Enumeration .hasmoreElements() 判断是否有下一个</li>
+<li>Enumeration .nextElement() 获取下一个元素名称</li>
+<li>getHeader(String name)  将名称传入getHeader方法，获取值</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>获取请求体消息</p>
+<ol>
+<li><p>获取流对象</p>
+<ul>
+<li><p>BufferedReader getReader)l:获取字符输入流，只能操作字符数据</p>
+</li>
+<li><p>ServletInputStream getInputstream():获取字节输入流，可以操作所有类型数据</p>
+<p>用于文件上传</p>
+</li>
+</ul>
+</li>
+<li><p>从流中获取数据</p>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>其他功能</strong>（重点）</p>
+<ul>
+<li><p>获取请求参数通用方法：不论get还是post请求方式都可以使用下列方法来获取请求参数</p>
+<ol>
+<li>String getParameter(String name)：根据参数名称获取参数值</li>
+<li>String getParameterValues(String name)：根据参数名称获取参数值的数组（复选框的value值）</li>
+<li>Enumeration<String> getParameterNames()：获取所有请求参数的名称</String></li>
+<li>Map<String,String[]> getParameterMap()：获取所有参数的map集合</String,String[]></li>
+</ol>
+<p>中文乱码问题：</p>
+<ul>
+<li><p>get方式：tomcat8 已经将乱码问题解决</p>
+</li>
+<li><p>post方式：中文乱码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.setCharacterEncoding(<span class="string">&quot;utf-8&quot;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>请求转发：一种在服务器中资源跳转的方式（浏览器路径栏不变，一次访问，在服务器内部进行）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req.getRequestDispatcher(<span class="string">&quot;/login.jsp&quot;</span>).forward(req,resp);</span><br></pre></td></tr></table></figure>
+<p>特点：</p>
+<ol>
+<li>浏览器地址栏不变</li>
+<li>一次访问，资源跳转在服务器内部进行</li>
+<li>只能访问当前服务器内部资源</li>
+<li>可以使用request域对象共享数据</li>
+</ol>
+</li>
+<li><p>共享数据</p>
+<ol>
+<li><p>request域：一次请求的范围，一般用于请求转发的多个资源中共享数据</p>
+<p>方法：</p>
+<ul>
+<li>setAttribute(String name,Object obj)：向域中存储数据</li>
+<li>Object getAttribute(String name)：通过建获取值 </li>
+<li>removeAttribute(String name)：通过键删除值</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>获取ServletContext</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ServletContext <span class="title">getServletContext</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h5 id="4-response对象"><a href="#4-response对象" class="headerlink" title="4. response对象"></a>4. response对象</h5><p>设置响应消息</p>
+<ol>
+<li><p>设置响应行</p>
+<ul>
+<li>设置状态码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setStatus(<span class="keyword">int</span> sc)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置响应头</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setHeader(String name,String value)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置响应体</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 获取输出流</span><br><span class="line">	* 字符输出流：<span class="function">printWriter <span class="title">getWriter</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	* 字节输出流：ServletOutputStream <span class="title">getOutputStream</span><span class="params">()</span></span></span><br><span class="line"><span class="function">2. 使用输出流，将数据输出到浏览器</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>案例：</p>
+<ul>
+<li><p>重定向</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 方式1</span></span><br><span class="line"><span class="comment">//设置响应行的响应状态码</span></span><br><span class="line">resp.setStatus(<span class="number">302</span>);</span><br><span class="line"><span class="comment">//设置响应头的，响应路径进行重定向</span></span><br><span class="line">resp.setHeader(<span class="string">&quot;location&quot;</span>,<span class="string">&quot;/login.jsp&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.封装方式2</span></span><br><span class="line">resp.sendRedirect(<span class="string">&quot;/login.jsp&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>特点：</p>
+<ul>
+<li>转发地址栏改变</li>
+<li>可以访问其他站点资源</li>
+<li>是两次访问</li>
+<li>不能使用request域对象共享数据</li>
+</ul>
+</li>
+<li><p>服务器输出字符数据到浏览器</p>
+</li>
+<li><p>服务器输出字节数据到浏览器</p>
+</li>
+</ul>
+<h3 id="二、W3Cschool教程"><a href="#二、W3Cschool教程" class="headerlink" title="二、W3Cschool教程"></a>二、W3Cschool教程</h3><h5 id="1-Servlet-客户端-HTTP-请求"><a href="#1-Servlet-客户端-HTTP-请求" class="headerlink" title="1. Servlet 客户端 HTTP 请求"></a>1. Servlet 客户端 HTTP 请求</h5><p>当浏览器请求网页时，它会向 Web 服务器发送特定信息，这些信息不能被直接读取，因为这些信息是作为 HTTP 请求的头的一部分进行传输的。您可以查看 <a target="_blank" rel="noopener" href="https://www.w3cschool.cn/http/http-tutorial.html">HTTP 协议</a> 了解更多相关信息。</p>
+<p>以下是来自于浏览器端的重要头信息，您可以在 Web 编程中频繁使用：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">头信息</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Accept</td>
+<td style="text-align:left">这个头信息指定浏览器或其他客户端可以处理的 MIME 类型。值 <strong>image/png</strong> 或 <strong>image/jpeg</strong> 是最常见的两种可能值。</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Charset</td>
+<td style="text-align:left">这个头信息指定浏览器可以用来显示信息的字符集。例如 ISO-8859-1。</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Encoding</td>
+<td style="text-align:left">这个头信息指定浏览器知道如何处理的编码类型。值 <strong>gzip</strong> 或 <strong>compress</strong> 是最常见的两种可能值。</td>
+</tr>
+<tr>
+<td style="text-align:left">Accept-Language</td>
+<td style="text-align:left">这个头信息指定客户端的首选语言，在这种情况下，Servlet 会产生多种语言的结果。例如，en、en-us、ru 等。</td>
+</tr>
+<tr>
+<td style="text-align:left">Authorization</td>
+<td style="text-align:left">这个头信息用于客户端在访问受密码保护的网页时识别自己的身份。</td>
+</tr>
+<tr>
+<td style="text-align:left">Connection</td>
+<td style="text-align:left">这个头信息指示客户端是否可以处理持久 HTTP 连接。持久连接允许客户端或其他浏览器通过单个请求来检索多个文件。值 <strong>Keep-Alive</strong> 意味着使用了持续连接。</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Length</td>
+<td style="text-align:left">这个头信息只适用于 POST 请求，并给出 POST 数据的大小（以字节为单位）。</td>
+</tr>
+<tr>
+<td style="text-align:left">Cookie</td>
+<td style="text-align:left">这个头信息把之前发送到浏览器的 cookies 返回到服务器。</td>
+</tr>
+<tr>
+<td style="text-align:left">Host</td>
+<td style="text-align:left">这个头信息指定原始的 URL 中的主机和端口。</td>
+</tr>
+<tr>
+<td style="text-align:left">If-Modified-Since</td>
+<td style="text-align:left">这个头信息表示只有当页面在指定的日期后已更改时，客户端想要的页面。如果没有新的结果可以使用，服务器会发送一个 304 代码，表示 <strong>Not Modified</strong> 头信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">If-Unmodified-Since</td>
+<td style="text-align:left">这个头信息是 If-Modified-Since 的对立面，它指定只有当文档早于指定日期时，操作才会成功。</td>
+</tr>
+<tr>
+<td style="text-align:left">Referer</td>
+<td style="text-align:left">这个头信息指示所指向的 Web 页的 URL。例如，如果您在网页 1，点击一个链接到网页 2，当浏览器请求网页 2 时，网页 1 的 URL 就会包含在 Referer 头信息中。</td>
+</tr>
+<tr>
+<td style="text-align:left">User-Agent</td>
+<td style="text-align:left">这个头信息识别发出请求的浏览器或其他客户端，并可以向不同类型的浏览器返回不同的内容。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="2-读取-HTTP-头的方法"><a href="#2-读取-HTTP-头的方法" class="headerlink" title="2. 读取 HTTP 头的方法"></a>2. 读取 HTTP 头的方法</h5><p>下面的方法可用在 Servlet 程序中读取 HTTP 头。这些方法通过 <em>HttpServletRequest</em> 对象可用。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>Cookie[] getCookies()</strong> 返回一个数组，包含客户端发送该请求的所有的 Cookie 对象。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>Enumeration getAttributeNames()</strong> 返回一个枚举，包含提供给该请求可用的属性名称。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>Enumeration getHeaderNames()</strong> 返回一个枚举，包含在该请求中包含的所有的头名。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>Enumeration getParameterNames()</strong> 返回一个 String 对象的枚举，包含在该请求中包含的参数的名称。</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>HttpSession getSession()</strong> 返回与该请求关联的当前 session 会话，或者如果请求没有 session 会话，则创建一个。</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>HttpSession getSession(boolean create)</strong> 返回与该请求关联的当前 HttpSession，或者如果没有当前会话，且创建是真的，则返回一个新的 session 会话。</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><strong>Locale getLocale()</strong> 基于 Accept-Language 头，返回客户端接受内容的首选的区域设置。</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><strong>Object getAttribute(String name)</strong> 以对象形式返回已命名属性的值，如果没有给定名称的属性存在，则返回 null。</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left"><strong>ServletInputStream getInputStream()</strong> 使用 ServletInputStream，以二进制数据形式检索请求的主体。</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left"><strong>String getAuthType()</strong> 返回用于保护 Servlet 的身份验证方案的名称，例如，”BASIC” 或 “SSL”，如果JSP没有受到保护则返回 null。</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left"><strong>String getCharacterEncoding()</strong> 返回请求主体中使用的字符编码的名称。</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left"><strong>String getContentType()</strong> 返回请求主体的 MIME 类型，如果不知道类型则返回 null。</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><strong>String getContextPath()</strong> 返回指示请求上下文的请求 URI 部分。</td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left"><strong>String getHeader(String name)</strong> 以字符串形式返回指定的请求头的值。</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left"><strong>String getMethod()</strong> 返回请求的 HTTP 方法的名称，例如，GET、POST 或 PUT。</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left"><strong>String getParameter(String name)</strong> 以字符串形式返回请求参数的值，或者如果参数不存在则返回 null。</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left"><strong>String getPathInfo()</strong> 当请求发出时，返回与客户端发送的 URL 相关的任何额外的路径信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left"><strong>String getProtocol()</strong> 返回请求协议的名称和版本。</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left"><strong>String getQueryString()</strong> 返回包含在路径后的请求 URL 中的查询字符串。</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left"><strong>String getRemoteAddr()</strong> 返回发送请求的客户端的互联网协议（IP）地址。</td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left"><strong>String getRemoteHost()</strong> 返回发送请求的客户端的完全限定名称。</td>
+</tr>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left"><strong>String getRemoteUser()</strong> 如果用户已通过身份验证，则返回发出请求的登录用户，或者如果用户未通过身份验证，则返回 null。</td>
+</tr>
+<tr>
+<td style="text-align:left">23</td>
+<td style="text-align:left"><strong>String getRequestURI()</strong> 从协议名称直到 HTTP 请求的第一行的查询字符串中，返回该请求的 URL 的一部分。</td>
+</tr>
+<tr>
+<td style="text-align:left">24</td>
+<td style="text-align:left"><strong>String getRequestedSessionId()</strong> 返回由客户端指定的 session 会话 ID。</td>
+</tr>
+<tr>
+<td style="text-align:left">25</td>
+<td style="text-align:left"><strong>String getServletPath()</strong> 返回调用 JSP 的请求的 URL 的一部分。</td>
+</tr>
+<tr>
+<td style="text-align:left">26</td>
+<td style="text-align:left"><strong>String[] getParameterValues(String name)</strong> 返回一个字符串对象的数组，包含所有给定的请求参数的值，如果参数不存在则返回 null。</td>
+</tr>
+<tr>
+<td style="text-align:left">27</td>
+<td style="text-align:left"><strong>boolean isSecure()</strong> 返回一个布尔值，指示请求是否使用安全通道，如 HTTPS。</td>
+</tr>
+<tr>
+<td style="text-align:left">28</td>
+<td style="text-align:left"><strong>int getContentLength()</strong> 以字节为单位返回请求主体的长度，并提供输入流，或者如果长度未知则返回 -1。</td>
+</tr>
+<tr>
+<td style="text-align:left">29</td>
+<td style="text-align:left"><strong>int getIntHeader(String name)</strong> 返回指定的请求头的值为一个 int 值。</td>
+</tr>
+<tr>
+<td style="text-align:left">30</td>
+<td style="text-align:left"><strong>int getServerPort()</strong> 返回接收到这个请求的端口号。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="3-Servlet-服务器-HTTP-响应"><a href="#3-Servlet-服务器-HTTP-响应" class="headerlink" title="3. Servlet 服务器 HTTP 响应"></a>3. Servlet 服务器 HTTP 响应</h5><p>正如前面的章节中讨论的那样，当一个 Web 服务器响应一个 HTTP 请求时，响应通常包括一个状态行、一些响应报头、一个空行和文档。一个典型的响应如下所示：</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/html</span><br><span class="line"><span class="attribute">Header2</span><span class="punctuation">: </span>...</span><br><span class="line">...</span><br><span class="line"><span class="attribute">HeaderN</span><span class="punctuation">: </span>...</span><br><span class="line">  (Blank Line)</span><br><span class="line">&lt;!doctype ...&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;...&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">...</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p>状态行包括 HTTP 版本（在本例中为 HTTP/1.1）、一个状态码（在本例中为 200）和一个对应于状态码的短消息（在本例中为 OK）。</p>
+<p>下表总结了从 Web 服务器端返回到浏览器的最有用的 HTTP 1.1 响应报头，您会在 Web 编程中频繁地使用它们：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">头信息</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Allow</td>
+<td style="text-align:left">这个头信息指定服务器支持的请求方法（GET、POST 等）。</td>
+</tr>
+<tr>
+<td style="text-align:left">Cache-Control</td>
+<td style="text-align:left">这个头信息指定响应文档在何种情况下可以安全地缓存。可能的值有：<strong>public、private</strong> 或 <strong>no-cache</strong> 等。Public 意味着文档是可缓存，Private 意味着文档是单个用户私用文档，且只能存储在私有（非共享）缓存中，no-cache 意味着文档不应被缓存。</td>
+</tr>
+<tr>
+<td style="text-align:left">Connection</td>
+<td style="text-align:left">这个头信息指示浏览器是否使用持久 HTTP 连接。值 <strong>close</strong> 指示浏览器不使用持久 HTTP 连接，值 <strong>keep-alive</strong> 意味着使用持久连接。</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Disposition</td>
+<td style="text-align:left">这个头信息可以让您请求浏览器要求用户以给定名称的文件把响应保存到磁盘。</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Encoding</td>
+<td style="text-align:left">在传输过程中，这个头信息指定页面的编码方式。</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Language</td>
+<td style="text-align:left">这个头信息表示文档编写所使用的语言。例如，en、en-us、ru 等。</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Length</td>
+<td style="text-align:left">这个头信息指示响应中的字节数。只有当浏览器使用持久（keep-alive）HTTP 连接时才需要这些信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">Content-Type</td>
+<td style="text-align:left">这个头信息提供了响应文档的 MIME（Multipurpose Internet Mail Extension）类型。</td>
+</tr>
+<tr>
+<td style="text-align:left">Expires</td>
+<td style="text-align:left">这个头信息指定内容过期的时间，在这之后内容不再被缓存。</td>
+</tr>
+<tr>
+<td style="text-align:left">Last-Modified</td>
+<td style="text-align:left">这个头信息指示文档的最后修改时间。然后，客户端可以缓存文件，并在以后的请求中通过 <strong>If-Modified-Since</strong> 请求头信息提供一个日期。</td>
+</tr>
+<tr>
+<td style="text-align:left">Location</td>
+<td style="text-align:left">这个头信息应被包含在所有的带有状态码的响应中。在 300s 内，这会通知浏览器文档的地址。浏览器会自动重新连接到这个位置，并获取新的文档。</td>
+</tr>
+<tr>
+<td style="text-align:left">Refresh</td>
+<td style="text-align:left">这个头信息指定浏览器应该如何尽快请求更新的页面。您可以指定页面刷新的秒数。</td>
+</tr>
+<tr>
+<td style="text-align:left">Retry-After</td>
+<td style="text-align:left">这个头信息可以与 503（Service Unavailable 服务不可用）响应配合使用，这会告诉客户端多久就可以重复它的请求。</td>
+</tr>
+<tr>
+<td style="text-align:left">Set-Cookie</td>
+<td style="text-align:left">这个头信息指定一个与页面关联的 cookie。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="4-设置-HTTP-响应报头的方法"><a href="#4-设置-HTTP-响应报头的方法" class="headerlink" title="4. 设置 HTTP 响应报头的方法"></a>4. 设置 HTTP 响应报头的方法</h5><p>下面的方法可用于在 Servlet 程序中设置 HTTP 响应报头。这些方法通过 <em>HttpServletResponse</em> 对象可用。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">方法 &amp; 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>String encodeRedirectURL(String url)</strong> 为 sendRedirect 方法中使用的指定的 URL 进行编码，或者如果编码不是必需的，则返回 URL 未改变。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>String encodeURL(String url)</strong> 对包含 session 会话 ID 的指定 URL 进行编码，或者如果编码不是必需的，则返回 URL 未改变。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>boolean containsHeader(String name)</strong> 返回一个布尔值，指示是否已经设置已命名的响应报头。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>boolean isCommitted()</strong> 返回一个布尔值，指示响应是否已经提交。</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>void addCookie(Cookie cookie)</strong> 把指定的 cookie 添加到响应。</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>void addDateHeader(String name, long date)</strong> 添加一个带有给定的名称和日期值的响应报头。</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><strong>void addHeader(String name, String value)</strong> 添加一个带有给定的名称和值的响应报头。</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><strong>void addIntHeader(String name, int value)</strong> 添加一个带有给定的名称和整数值的响应报头。</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left"><strong>void flushBuffer()</strong> 强制任何在缓冲区中的内容被写入到客户端。</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left"><strong>void reset()</strong> 清除缓冲区中存在的任何数据，包括状态码和头。</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left"><strong>void resetBuffer()</strong> 清除响应中基础缓冲区的内容，不清除状态码和头。</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left"><strong>void sendError(int sc)</strong> 使用指定的状态码发送错误响应到客户端，并清除缓冲区。</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><strong>void sendError(int sc, String msg)</strong> 使用指定的状态发送错误响应到客户端。</td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left"><strong>void sendRedirect(String location)</strong> 使用指定的重定向位置 URL 发送临时重定向响应到客户端。</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left"><strong>void setBufferSize(int size)</strong> 为响应主体设置首选的缓冲区大小。</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left"><strong>void setCharacterEncoding(String charset)</strong> 设置被发送到客户端的响应的字符编码（MIME 字符集）例如，UTF-8。</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left"><strong>void setContentLength(int len)</strong> 设置在 HTTP Servlet 响应中的内容主体的长度，该方法设置 HTTP Content-Length 头。</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left"><strong>void setContentType(String type)</strong> 如果响应还未被提交，设置被发送到客户端的响应的内容类型。</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left"><strong>void setDateHeader(String name, long date)</strong> 设置一个带有给定的名称和日期值的响应报头。</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left"><strong>void setHeader(String name, String value)</strong> 设置一个带有给定的名称和值的响应报头。</td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left"><strong>void setIntHeader(String name, int value)</strong> 设置一个带有给定的名称和整数值的响应报头。</td>
+</tr>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left"><strong>void setLocale(Locale loc)</strong> 如果响应还未被提交，设置响应的区域。</td>
+</tr>
+<tr>
+<td style="text-align:left">23</td>
+<td style="text-align:left"><strong>void setStatus(int sc)</strong> 为该响应设置状态码。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/http%E5%AD%A6%E4%B9%A0/" rel="tag"># http学习</a>
+          
+            <a href="/tags/request/" rel="tag"># request</a>
+          
+            <a href="/tags/response/" rel="tag"># response</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/12/03/servlet-2/" rel="next" title="servlet-2">
+                <i class="fa fa-chevron-left"></i> servlet-2
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/12/06/verification-code/" rel="prev" title="verification_code">
+                verification_code <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81http%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">一、http概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%AF%B7%E6%B1%82%E6%B6%88%E6%81%AF%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. 请求消息数据格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%93%8D%E5%BA%94%E6%B6%88%E6%81%AF%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.0.2.</span> <span class="nav-text">2. 响应消息数据格式</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-request%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.1.</span> <span class="nav-text">3. request对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-response%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.2.</span> <span class="nav-text">4. response对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81W3Cschool%E6%95%99%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">二、W3Cschool教程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Servlet-%E5%AE%A2%E6%88%B7%E7%AB%AF-HTTP-%E8%AF%B7%E6%B1%82"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. Servlet 客户端 HTTP 请求</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E8%AF%BB%E5%8F%96-HTTP-%E5%A4%B4%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. 读取 HTTP 头的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-Servlet-%E6%9C%8D%E5%8A%A1%E5%99%A8-HTTP-%E5%93%8D%E5%BA%94"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. Servlet 服务器 HTTP 响应</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E8%AE%BE%E7%BD%AE-HTTP-%E5%93%8D%E5%BA%94%E6%8A%A5%E5%A4%B4%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">2.0.4.</span> <span class="nav-text">4. 设置 HTTP 响应报头的方法</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

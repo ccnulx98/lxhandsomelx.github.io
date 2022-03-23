@@ -88,7 +88,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2021/11/18/database-6/1.png">
 <meta property="article:published_time" content="2021-11-18T03:07:40.000Z">
-<meta property="article:modified_time" content="2021-11-18T13:44:22.297Z">
+<meta property="article:modified_time" content="2022-03-23T04:17:11.770Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数据库事务">
 <meta property="article:tag" content="数据库用户和权限管理">
@@ -431,7 +431,7 @@
 <li>脏读：读取到一个事务中没有提交的数据</li>
 <li>不可重复读（虚读）：在同一个事务中，两次读取到数据的结果不一样</li>
 <li>幻读：一个事物操作（DML）数据表中所有的记录，另一个事务添加了一条数据，则第一个事务查询不到自己的修改。一个事务在前后两次查询同一个范围的时候、后一次查询看到了前一次查询未看到的行. <ul>
-<li>幻读问题产生的本质原因是什么?<br>如果事务中进行操作的都是快照读，卵么是不会产生幻读问题的，但是当快照读和当前读一起使用的时候才会产生幻读问题</li>
+<li>幻读问题产生的本质原因是什么?<br>如果事务中进行操作的都是快照读，是不会产生幻读问题的，但是当快照读和当前读一起使用的时候才会产生幻读问题</li>
 </ul>
 </li>
 </ol>

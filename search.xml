@@ -4124,10 +4124,9 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>mybatis</title>
     <url>/2022/03/14/mybatis/</url>
-    <content><![CDATA[<p>title: mybatis<br>date: 2022-03-14 21:15:41<br>categories: SSM<br>tags: mybatis</p>
-<h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><h2 id="一、mybatis的介绍"><a href="#一、mybatis的介绍" class="headerlink" title="一、mybatis的介绍"></a>一、mybatis的介绍</h2><p>​    MyBatis 本是apache的一个开源项目iBatis, 2010年这个项目由apache software foundation 迁移到了</p>
+    <content><![CDATA[<h1 id="MyBatis"><a href="#MyBatis" class="headerlink" title="MyBatis"></a>MyBatis</h1><h2 id="一、mybatis的介绍"><a href="#一、mybatis的介绍" class="headerlink" title="一、mybatis的介绍"></a>一、mybatis的介绍</h2><p>​    MyBatis 本是apache的一个开源项目iBatis, 2010年这个项目由apache software foundation 迁移到了</p>
 <p>google code，并且改名为MyBatis 。 2013 年 11 月迁移到Github。 MyBatis是一个优秀的持久层框</p>
 <p>架，它对jdbc的操作数据库的过程进行封装，使开发者只需要关注 SQL 本身，而不需要花费精力去处</p>
 <p>理例如注册驱动、创建connection、创建statement、手动设置参数、结果集检索等jdbc繁杂的过程代</p>
@@ -4655,6 +4654,12 @@
 <li>再连接数据库查询</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>SSM</category>
+      </categories>
+      <tags>
+        <tag>mybatis</tag>
+      </tags>
   </entry>
   <entry>
     <title>servlet-2</title>

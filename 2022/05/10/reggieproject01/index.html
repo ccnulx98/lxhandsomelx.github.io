@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="title: 瑞吉外卖项目01date: 2022-05-10 09:36:05tags: [瑞吉外卖项目]categories: [瑞吉外卖项目] 一、登录1234567需求* 1、将页面提交的密码password进行md5加密处理* 2、根据页面提交的用户名username查询数据库* 3、如果没有查询到则返回登录失败结果* 4、密码比对，如果不一致则返回登录失败结果* 5、查看员工状态，如果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2022/05/10/reggieproject01/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="title: 瑞吉外卖项目01date: 2022-05-10 09:36:05tags: [瑞吉外卖项目]categories: [瑞吉外卖项目] 一、登录1234567需求* 1、将页面提交的密码password进行md5加密处理* 2、根据页面提交的用户名username查询数据库* 3、如果没有查询到则返回登录失败结果* 4、密码比对，如果不一致则返回登录失败结果* 5、查看员工状态，如果">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/05/10/reggieproject01/1.png">
+<meta property="og:image" content="http://example.com/2022/05/10/reggieproject01/2.png">
+<meta property="article:published_time" content="2022-05-10T01:36:05.290Z">
+<meta property="article:modified_time" content="2022-05-13T15:56:15.796Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/05/10/reggieproject01/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2022/05/10/reggieproject01/"/>
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/10/reggieproject01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-05-10T09:36:05+08:00">
+                2022-05-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>title: 瑞吉外卖项目01<br>date: 2022-05-10 09:36:05<br>tags: [瑞吉外卖项目]<br>categories: [瑞吉外卖项目]</p>
+<h1 id="一、登录"><a href="#一、登录" class="headerlink" title="一、登录"></a>一、登录</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">需求</span><br><span class="line">* 1、将页面提交的密码password进行md5加密处理</span><br><span class="line">* 2、根据页面提交的用户名username查询数据库</span><br><span class="line">* 3、如果没有查询到则返回登录失败结果</span><br><span class="line">* 4、密码比对，如果不一致则返回登录失败结果</span><br><span class="line">* 5、查看员工状态，如果为已禁用状态，则返回员工已禁用结果</span><br><span class="line">* 6、登录成功，将员工id存入Session并返回登录成功结果</span><br></pre></td></tr></table></figure>
+<h2 id="1-基础登录逻辑"><a href="#1-基础登录逻辑" class="headerlink" title="1. 基础登录逻辑"></a>1. 基础登录逻辑</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/login&quot;)</span></span><br><span class="line"><span class="comment">//接收前端json数据需要加注解@RequestBody</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;Employee&gt; <span class="title">Login</span><span class="params">(HttpServletRequest request,<span class="meta">@RequestBody</span> Employee employee)</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 1、将页面提交的密码password进行md5加密处理</span></span><br><span class="line"><span class="comment">     * 2、根据页面提交的用户名username查询数据库</span></span><br><span class="line"><span class="comment">     * 3、如果没有查询到则返回登录失败结果</span></span><br><span class="line"><span class="comment">     * 4、密码比对，如果不一致则返回登录失败结果</span></span><br><span class="line"><span class="comment">     * 5、查看员工状态，如果为已禁用状态，则返回员工已禁用结果</span></span><br><span class="line"><span class="comment">     * 6、登录成功，将员工id存入Session并返回登录成功结果</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">//1、将页面提交的密码password进行md5加密处理</span></span><br><span class="line">    String password = employee.getPassword();</span><br><span class="line">    password = DigestUtils.md5DigestAsHex(password.getBytes(StandardCharsets.UTF_8));</span><br><span class="line">    <span class="comment">//2、根据页面提交的用户名username查询数据库</span></span><br><span class="line">    LambdaQueryWrapper&lt;Employee&gt; queryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.eq(Employee::getUsername,employee.getUsername());</span><br><span class="line">    Employee empUser = employeeService.getOne(queryWrapper);</span><br><span class="line">    <span class="comment">//3、如果没有查询到则返回登录失败结果</span></span><br><span class="line">    <span class="keyword">if</span>(empUser==<span class="keyword">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> R.error(<span class="string">&quot;登陆失败！用户不存在！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4、密码比对，如果不一致则返回登录失败结果</span></span><br><span class="line">    <span class="keyword">if</span>(!empUser.getPassword().equals(password))&#123;</span><br><span class="line">        <span class="keyword">return</span> R.error(<span class="string">&quot;登录失败！密码错误！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//5、查看员工状态，如果为已禁用状态，则返回员工已禁用结果</span></span><br><span class="line">    <span class="comment">// 0 表示禁用，1表示可用</span></span><br><span class="line">    <span class="keyword">if</span>(empUser.getStatus()==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> R.error(<span class="string">&quot;登录失败！账号禁用！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//6、登录成功，将员工id存入Session并返回登录成功结果</span></span><br><span class="line">    request.getSession().setAttribute(<span class="string">&quot;employee&quot;</span>,empUser.getId());</span><br><span class="line">    <span class="keyword">return</span> R.success(empUser);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-添加过滤器检验是否登录"><a href="#2-添加过滤器检验是否登录" class="headerlink" title="2. 添加过滤器检验是否登录"></a>2. 添加过滤器检验是否登录</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter(filterName = &quot;loginCheckFilter&quot;,urlPatterns = &quot;/*&quot;)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginCheckFilter</span> <span class="keyword">implements</span> <span class="title">Filter</span> </span>&#123;</span><br><span class="line">    <span class="comment">//路径匹配器 ，支持通配符</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> AntPathMatcher PATH_MATCHER = <span class="keyword">new</span> AntPathMatcher();</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doFilter</span><span class="params">(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)</span> <span class="keyword">throws</span> IOException, ServletException </span>&#123;</span><br><span class="line">        <span class="comment">//定义不需要拦截的uri数组</span></span><br><span class="line">        String[] excludeUri = <span class="keyword">new</span> String[]&#123;</span><br><span class="line">                <span class="string">&quot;/employee/login/**&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/employee/logout&quot;</span>,</span><br><span class="line">                <span class="string">&quot;/backend/**&quot;</span></span><br><span class="line">        &#125;;</span><br><span class="line">        HttpServletRequest request = (HttpServletRequest) servletRequest;</span><br><span class="line">        HttpServletResponse response = (HttpServletResponse) servletResponse;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1. 获取拦截请求</span></span><br><span class="line">        String requestURI = request.getRequestURI();</span><br><span class="line">        <span class="comment">// 2. 判断是否需要拦截</span></span><br><span class="line">        <span class="keyword">boolean</span> check = check(excludeUri, requestURI);</span><br><span class="line">        <span class="comment">// 3. 不需要处理则直接放行</span></span><br><span class="line">        <span class="keyword">if</span>(check)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;无需处理请求:&#123;&#125;&quot;</span>,request.getRequestURI());</span><br><span class="line">            filterChain.doFilter(request,response);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 4. 如果需要处理，则判断用户是否登录</span></span><br><span class="line">        <span class="comment">// 登录了直接放行</span></span><br><span class="line">        <span class="keyword">if</span>(request.getSession().getAttribute(<span class="string">&quot;employee&quot;</span>)!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;用户已登录-请求:&#123;&#125;&quot;</span>,request.getRequestURI());</span><br><span class="line">            filterChain.doFilter(request,response);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果未登录</span></span><br><span class="line">        log.info(<span class="string">&quot;未登录-拦截请求:&#123;&#125;&quot;</span>,request.getRequestURI());</span><br><span class="line">        response.getWriter().write(JSON.toJSONString(R.error(<span class="string">&quot;NOTLOGIN&quot;</span>)));</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 进行路径过滤匹配</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> urls</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> requestURI</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">check</span><span class="params">(String[] urls, String requestURI)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (String url : urls) &#123;</span><br><span class="line">            <span class="keyword">boolean</span> match = PATH_MATCHER.match(url, requestURI);</span><br><span class="line">            <span class="keyword">if</span>(match)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="二、添加员工"><a href="#二、添加员工" class="headerlink" title="二、添加员工"></a>二、添加员工</h1><p>添加员工时除了用户填写的信息，还要设置时间，默认初始密码等信息</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 新增员工</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> employee</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@PostMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;String&gt; <span class="title">save</span><span class="params">(HttpServletRequest request,<span class="meta">@RequestBody</span> Employee employee)</span></span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;新增员工：&#123;&#125;&quot;</span>,employee.toString());</span><br><span class="line">    <span class="comment">//设置初始密码123456，并进行MD5加密</span></span><br><span class="line">    employee.setPassword(DigestUtils.md5DigestAsHex(<span class="string">&quot;123456&quot;</span>.getBytes(StandardCharsets.UTF_8)));</span><br><span class="line">    employee.setCreateTime(<span class="keyword">new</span> Date());</span><br><span class="line">    employee.setUpdateTime(<span class="keyword">new</span> Date());</span><br><span class="line">    <span class="comment">//设置创建，修改用户id</span></span><br><span class="line">    Long userid = (Long) request.getSession().getAttribute(<span class="string">&quot;employee&quot;</span>);</span><br><span class="line">    employee.setCreateUser(userid);</span><br><span class="line">    employee.setUpdateUser(userid);</span><br><span class="line">    employeeService.save(employee);</span><br><span class="line">    <span class="keyword">return</span> R.success(<span class="string">&quot;新增成功！&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>新增员工时如果用户名重复则会抛出异常</p>
+<p>这里我们选择使用全局异常对它进行处理</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice(annotations = &#123;RestController.class, Controller.class&#125;)</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlobalExceptionHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ExceptionHandler(SQLIntegrityConstraintViolationException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R&lt;String&gt; <span class="title">exceptionHandler</span><span class="params">(SQLIntegrityConstraintViolationException exception)</span> </span>&#123;</span><br><span class="line">        log.error(exception.getMessage());</span><br><span class="line">        <span class="keyword">if</span>(exception.getMessage().contains(<span class="string">&quot;Duplicate entry&quot;</span>))&#123;</span><br><span class="line">            String repeat = exception.getMessage().split(<span class="string">&quot; &quot;</span>)[<span class="number">2</span>];</span><br><span class="line">            <span class="keyword">return</span> R.error(<span class="string">&quot;用户名&quot;</span>+repeat+<span class="string">&quot;已存在&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R.error(<span class="string">&quot;操作失败！&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="三、员工分页查询"><a href="#三、员工分页查询" class="headerlink" title="三、员工分页查询"></a>三、员工分页查询</h1><h2 id="1-添加mybatis-plus分页配置"><a href="#1-添加mybatis-plus分页配置" class="headerlink" title="1. 添加mybatis-plus分页配置"></a>1. 添加mybatis-plus分页配置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@MapperScan(&quot;cn.hestialx.reggie_project.mapper&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisPlusConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MybatisPlusInterceptor <span class="title">mybatisPlusInterceptor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        MybatisPlusInterceptor Interceptor = <span class="keyword">new</span> MybatisPlusInterceptor();</span><br><span class="line">        <span class="comment">//配置分页插件</span></span><br><span class="line">        Interceptor.addInnerInterceptor(<span class="keyword">new</span> PaginationInnerInterceptor(DbType.MYSQL));</span><br><span class="line">        <span class="keyword">return</span> Interceptor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-编写分页controller"><a href="#2-编写分页controller" class="headerlink" title="2. 编写分页controller"></a>2. 编写分页controller</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/page&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;Page&gt; <span class="title">pageFindUser</span><span class="params">(EmployeeQuery employeeQuery)</span></span>&#123;</span><br><span class="line">    Page&lt;Employee&gt; employeePage = <span class="keyword">new</span> Page&lt;&gt;();</span><br><span class="line">    employeePage.setCurrent(employeeQuery.getPage());</span><br><span class="line">    employeePage.setSize(employeeQuery.getPageSize());</span><br><span class="line">    <span class="keyword">if</span>(employeeQuery.getName()!=<span class="keyword">null</span>)&#123;</span><br><span class="line">        LambdaQueryWrapper&lt;Employee&gt; queryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">        queryWrapper.like(Employee::getName,employeeQuery.getName());</span><br><span class="line">        employeeService.page(employeePage, queryWrapper);</span><br><span class="line">        <span class="keyword">return</span> R.success(employeePage);</span><br><span class="line">    &#125;</span><br><span class="line">    employeeService.page(employeePage);</span><br><span class="line">    <span class="keyword">return</span> R.success(employeePage);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="四、启用或者禁用员工账号"><a href="#四、启用或者禁用员工账号" class="headerlink" title="四、启用或者禁用员工账号"></a>四、启用或者禁用员工账号</h1><h2 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h2><p>启用或者禁用用户实际上是修改用户，因此可以编写一个修改用户的通用controller来实现该功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PutMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;String&gt; <span class="title">update</span><span class="params">(HttpServletRequest request,<span class="meta">@RequestBody</span> Employee employee)</span></span>&#123;</span><br><span class="line">    log.info(employee.toString());</span><br><span class="line">    employee.setUpdateTime(<span class="keyword">new</span> Date());</span><br><span class="line">    employee.setUpdateUser((Long)request.getSession().getAttribute(<span class="string">&quot;employee&quot;</span>));</span><br><span class="line">    employeeService.updateById(employee);</span><br><span class="line">    <span class="keyword">return</span> R.success(<span class="string">&quot;员工信息修改成功&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="问题：这样编写修改失败"><a href="#问题：这样编写修改失败" class="headerlink" title="问题：这样编写修改失败"></a>问题：这样编写修改失败</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">=</span><span class="operator">=</span><span class="operator">&gt;</span>  Preparing: UPDATE employee <span class="keyword">SET</span> status<span class="operator">=</span>?, update_time<span class="operator">=</span>?, update_user<span class="operator">=</span>? <span class="keyword">WHERE</span> id<span class="operator">=</span>?</span><br><span class="line"><span class="operator">=</span><span class="operator">=</span><span class="operator">&gt;</span> Parameters: <span class="number">0</span>(<span class="type">Integer</span>), <span class="number">2022</span><span class="number">-05</span><span class="number">-11</span> <span class="number">21</span>:<span class="number">00</span>:<span class="number">10.916</span>(<span class="type">Timestamp</span>), <span class="number">1</span>(Long), <span class="number">1524009808844914700</span>(Long)</span><br><span class="line"><span class="operator">&lt;=</span><span class="operator">=</span>    Updates: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>仔细观察发现，id与数据库中不一致</p>
+<p>原因：</p>
+<ul>
+<li>这js数据精度的问题，雪花算法生成的19位的long数组太大，超过了js的数据范围</li>
+</ul>
+<p>解决办法：</p>
+<ul>
+<li>我们可以在服务端给页面响应json数据时进行处理，将long型数据统一转为String字符串</li>
+</ul>
+<h2 id="添加json数据映射器"><a href="#添加json数据映射器" class="headerlink" title="添加json数据映射器"></a>添加json数据映射器</h2><p>1）提供对象转换器JacksonObjectMapper，基于Jackson进行Java对象到json数据的转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 对象映射器:基于jackson将Java对象转为json，或者将json转为Java对象</span></span><br><span class="line"><span class="comment"> * 将JSON解析为Java对象的过程称为 [从JSON反序列化Java对象]</span></span><br><span class="line"><span class="comment"> * 从Java对象生成JSON的过程称为 [序列化Java对象到JSON]</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JacksonObjectMapper</span> <span class="keyword">extends</span> <span class="title">ObjectMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_DATE_FORMAT = <span class="string">&quot;yyyy-MM-dd&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_DATE_TIME_FORMAT = <span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_TIME_FORMAT = <span class="string">&quot;HH:mm:ss&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JacksonObjectMapper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="comment">//收到未知属性时不报异常</span></span><br><span class="line">        <span class="keyword">this</span>.configure(FAIL_ON_UNKNOWN_PROPERTIES, <span class="keyword">false</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//反序列化时，属性不存在的兼容处理</span></span><br><span class="line">        <span class="keyword">this</span>.getDeserializationConfig().withoutFeatures(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        SimpleModule simpleModule = <span class="keyword">new</span> SimpleModule()</span><br><span class="line">                .addDeserializer(LocalDateTime.class, <span class="keyword">new</span> LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(DEFAULT_DATE_TIME_FORMAT)))</span><br><span class="line">                .addDeserializer(LocalDate.class, <span class="keyword">new</span> LocalDateDeserializer(DateTimeFormatter.ofPattern(DEFAULT_DATE_FORMAT)))</span><br><span class="line">                .addDeserializer(LocalTime.class, <span class="keyword">new</span> LocalTimeDeserializer(DateTimeFormatter.ofPattern(DEFAULT_TIME_FORMAT)))</span><br><span class="line"></span><br><span class="line">                .addSerializer(BigInteger.class, ToStringSerializer.instance)</span><br><span class="line">                .addSerializer(Long.class, ToStringSerializer.instance)</span><br><span class="line">                .addSerializer(LocalDateTime.class, <span class="keyword">new</span> LocalDateTimeSerializer(DateTimeFormatter.ofPattern(DEFAULT_DATE_TIME_FORMAT)))</span><br><span class="line">                .addSerializer(LocalDate.class, <span class="keyword">new</span> LocalDateSerializer(DateTimeFormatter.ofPattern(DEFAULT_DATE_FORMAT)))</span><br><span class="line">                .addSerializer(LocalTime.class, <span class="keyword">new</span> LocalTimeSerializer(DateTimeFormatter.ofPattern(DEFAULT_TIME_FORMAT)));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//注册功能模块 例如，可以添加自定义序列化器和反序列化器</span></span><br><span class="line">        <span class="keyword">this</span>.registerModule(simpleModule);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2)在WebMvcConfig配置类中扩展Spring mvc的消息转换器，在此消息转换器中使用提供的对象转换器进行Java对象到json数据的转换</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 扩展mvc消息转换器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> converters</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">extendMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建消息转换器对象</span></span><br><span class="line">    MappingJackson2HttpMessageConverter messageConverter = <span class="keyword">new</span> MappingJackson2HttpMessageConverter();</span><br><span class="line">    <span class="comment">//设置对象转换器，使用jackson将Java对象转化为json</span></span><br><span class="line">    messageConverter.setObjectMapper(<span class="keyword">new</span> JacksonObjectMapper());</span><br><span class="line">    <span class="comment">//将转换器对象追加到转换器集合中，设置最高优先级0</span></span><br><span class="line">    converters.add(<span class="number">0</span>,messageConverter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="五、编辑员工"><a href="#五、编辑员工" class="headerlink" title="五、编辑员工"></a>五、编辑员工</h1><p>梳理操作过程和对应的程序的执行流程:</p>
+<p>1、点击编辑按钮时，页面跳转到add.html，并在url中携带参数[员工id]</p>
+<p>2、在add.html页面获取url中的参数[员工id]</p>
+<p>3、发送ajax请求，请求服务端，同时提交员工id参数</p>
+<p>4、服务端接收请求，根据员工id查询员工信息，将员工信息以json形式响应给页面</p>
+<p>5、页面接收服务端响应的json数据，通过VUE的数据绑定进行员工信息回显</p>
+<p>6、点击保存按钮，发送ajax请求，将页面中的员工信息以json方式提交给服务端</p>
+<p>7、服务端接收员工信息，并进行处理，完成后给页面响应</p>
+<p>8、页面接收到服务端响应信息后进行相应处理</p>
+<h1 id="六、公共字段的自动填充"><a href="#六、公共字段的自动填充" class="headerlink" title="六、公共字段的自动填充"></a>六、公共字段的自动填充</h1><h2 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h2><p>​    前面我们已经完成了后台系统的员工管理功能开发，在新增员工时需要设置创建时间、创建人、修改时间、修改人等字段，在编辑员工时需要设置修改时间和修改人等字段。</p>
+<p>这些字段属于公共字段，也就是很多表中都有这些字段，如下:</p>
+<p>create_time    </p>
+<p>update_time</p>
+<p>create_user</p>
+<p>update_user</p>
+<p><strong>能不能对于这些公共字段在某个地方统一处理，来简化开发呢?</strong></p>
+<p>答案就是使用Mybatis Plus提供的公共字段自动填充功能。</p>
+<h2 id="初步代码实现："><a href="#初步代码实现：" class="headerlink" title="初步代码实现："></a>初步代码实现：</h2><p><strong>Mybatis Plus公共字段自动填充，也就是在插入或者更新的时候为指定字段赋予指定的值，使用它的好处就是可以统一对这些字段进行处理，避免了重复代码。</strong></p>
+<p>实现步骤:</p>
+<p>1、在实体类的属性上加入@TableField注解，指定自动填充的策略</p>
+<p><img src="/2022/05/10/reggieproject01/1.png" alt="image-20220512164049748"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@TableField(fill = FieldFill.DEFAULT)</span> <span class="comment">//默认不处理</span></span><br><span class="line"><span class="meta">@TableField(fill = FieldFill.INSERT)</span> <span class="comment">//插入时填充</span></span><br><span class="line"><span class="meta">@TableField(fill = FieldFill.UPDATE)</span> <span class="comment">//更新时填充</span></span><br><span class="line"><span class="meta">@TableField(fill = FieldFill.INSERT_UPDATE)</span> <span class="comment">//插入和更新字段时填充</span></span><br></pre></td></tr></table></figure>
+<p>2、按照框架要求编写元数据对象处理器，在此类中统一为公共字段赋值，此类需要实现MetaObjectHandler接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 自定义元数据对象处理器</span></span><br><span class="line"><span class="comment"> * 公共字段自动填充</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lixu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2022-05-12-16:46</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMetaObjectHandler</span> <span class="keyword">implements</span> <span class="title">MetaObjectHandler</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        log.info(&quot;公共字段自动填充【insert】&quot;);</span></span><br><span class="line"><span class="comment">//        log.info(metaObject.toString());</span></span><br><span class="line">        metaObject.setValue(<span class="string">&quot;createTime&quot;</span>,<span class="keyword">new</span> Date());</span><br><span class="line">        metaObject.setValue(<span class="string">&quot;updateTime&quot;</span>,<span class="keyword">new</span> Date());</span><br><span class="line">        metaObject.setValue(<span class="string">&quot;createUser&quot;</span>,<span class="number">1L</span>);</span><br><span class="line">        metaObject.setValue(<span class="string">&quot;updateUser&quot;</span>,<span class="number">1L</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateFill</span><span class="params">(MetaObject metaObject)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        log.info(&quot;公共字段自动填充【insert】&quot;);</span></span><br><span class="line"><span class="comment">//        log.info(metaObject.toString());</span></span><br><span class="line">        metaObject.setValue(<span class="string">&quot;updateTime&quot;</span>,<span class="keyword">new</span> Date());</span><br><span class="line">        metaObject.setValue(<span class="string">&quot;updateUser&quot;</span>,<span class="number">1L</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="改进："><a href="#改进：" class="headerlink" title="改进："></a>改进：</h2><p>在上述代码中，我们没有获取当前登录用户id，而是写死了用户id</p>
+<p>要对代码进行改进，首先要获取当前登录的用户id。</p>
+<h3 id="知识补充："><a href="#知识补充：" class="headerlink" title="知识补充："></a>知识补充：</h3><p>在学习ThreadLocal之前，我们需要先确认一个事情，就是客户端发送的每次http请求，对应的在服务端都会分配一个新的线程来处理，在处理过程中涉及到的方法都属于相同的一个线程:</p>
+<p>1、 LoginCheckFilter的doFilter方法</p>
+<p>2、EmployeeController的update方法</p>
+<p>3、MyMetaObjectHandler的updateFill方法</p>
+<p>可以在上面的三个方法中分别加入下面代码（获取当前线程id) :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> id = Thread.currentThread().getId() ;</span><br><span class="line">log.info(<span class="string">&quot;线程id:&#123;&#125;&quot;</span>,id) ;</span><br></pre></td></tr></table></figure>
+<p>执行编辑员工功能进行验证，通过观察控制台输出可以发现，一次请求对应的线程id是相同的:</p>
+<p><img src="/2022/05/10/reggieproject01/2.png" alt="image-20220512172842301"></p>
+<h4 id="ThreadLocal"><a href="#ThreadLocal" class="headerlink" title="ThreadLocal"></a>ThreadLocal</h4><p>什么是ThreadLocal?</p>
+<p>ThreadLocal并不是一个Thread，而是Thread的局部变量。当使用ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程提供独立的变量副本，所以每一个线程都可以独立地改变自己的副本，而不会影响其它线程所对应的副本。ThreadLocal为每个线程提供单独一份存储空间，具有线程隔离的效果，只有在线程内才能获取到对应的值，线程外则不能访问。</p>
+<p>ThreadLocal常用方法:<br>线程本地常用方法：</p>
+<ul>
+<li>public void set(T value)   设置当前线程的线程局部变量的值</li>
+</ul>
+<ul>
+<li>public T get()                     返回当前线程所对应的线程局部变量的值</li>
+</ul>
+<p>我们可以在LoginCheckFilter的doFilter方法中获取当前登录用户id，并调用ThreadLocal的set方法来设置当前线程的线程局部变量的值（用户id)，然后在MyMetaObjectHandler的updateFill方法中调用ThreadLocal的get方法来获得当前线程所对应的线程局部变量的值(用户id）。</p>
+<h3 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤:"></a>实现步骤:</h3><p>1、编写BaseContext工具类，基于ThreadLocal封装的工具类</p>
+<p>2、在LoginCheckFilter的doFilter方法中调用BaseContext来设置当前登录用户的id</p>
+<p>3、在MyMetaobjectHandler的方法中调用BaseContext获取登录用户的id</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基于ThreadLocal封装的工具类</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lixu</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2022-05-12-17:46</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseContext</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ThreadLocal&lt;Long&gt; threadLocal = <span class="keyword">new</span> ThreadLocal&lt;&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setCurrentId</span><span class="params">(Long id)</span></span>&#123;</span><br><span class="line">        threadLocal.set(id);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Long <span class="title">getCurrentId</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> threadLocal.get();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="七、新增分类"><a href="#七、新增分类" class="headerlink" title="七、新增分类"></a>七、新增分类</h1><p>1、页面(backend/page/category/list.html)发送ajax请求，将新增分类窗口输入的数据以json形式提交到服务端</p>
+<p>2、服务端Controller接收页面提交的数据并调用Service将数据进行保存</p>
+<p>3、Service调用Mapper操作数据库，保存数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;String&gt; <span class="title">save</span><span class="params">(<span class="meta">@RequestBody</span> Category category)</span></span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;category:&#123;&#125;&quot;</span>,category);</span><br><span class="line">    <span class="keyword">boolean</span> result = categoryService.save(category);</span><br><span class="line">    <span class="keyword">if</span>(result)&#123;</span><br><span class="line">        <span class="keyword">return</span> R.success(<span class="string">&quot;新增分类成功&quot;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> R.error(<span class="string">&quot;新增分类失败&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="八、菜品分类分页查询"><a href="#八、菜品分类分页查询" class="headerlink" title="八、菜品分类分页查询"></a>八、菜品分类分页查询</h1><p>1、页面发送ajax请求，将分页查询参数(page.pageSize)提交到服务端</p>
+<p>2、服务端Controller接收页面提交的数据并调用Service查询数据</p>
+<p>3、Service调用Mapper操作数据库，查询分页数据</p>
+<p>4、controller将查询到的分页数据响应给页面</p>
+<p>5、页面接收到分页数据并通过ElementUl的Table组件展示到页面上</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/page&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;Page&gt; <span class="title">page</span><span class="params">(<span class="keyword">int</span> page, <span class="keyword">int</span> pageSize)</span></span>&#123;</span><br><span class="line">    Page&lt;Category&gt; pageCategory = <span class="keyword">new</span> Page&lt;&gt;();</span><br><span class="line">    LambdaQueryWrapper&lt;Category&gt; queryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.orderByAsc(Category::getSort);</span><br><span class="line">    categoryService.page(pageCategory, queryWrapper);</span><br><span class="line">    <span class="keyword">if</span>(pageCategory.getRecords().isEmpty())&#123;</span><br><span class="line">        <span class="keyword">return</span> R.error(<span class="string">&quot;没有数据&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> R.success(pageCategory);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="九、菜品分类删除"><a href="#九、菜品分类删除" class="headerlink" title="九、菜品分类删除"></a>九、菜品分类删除</h1><h2 id="基础需求："><a href="#基础需求：" class="headerlink" title="基础需求："></a>基础需求：</h2><p>在分类管理列表页面，可以对某个分类进行删除操作。需要注意的是当分类关联了菜品或者套餐时，此分类不允许删除。</p>
+<p>梳理一下整个程序的执行过程:</p>
+<p>1、页面发送ajax请求，将参数(id)提交到服务端</p>
+<p>2、服务端Controller接收页面提交的数据并调用Service删除数据</p>
+<p>3、Service调用Mapper操作数据库</p>
+<p><strong>注意</strong>：这里可以添加is_delete字段，使用@TableLogic注解标注is_delete字段，这样在使用mybatis-plus提供的删除中就不会删除记录而是修改is_delete字段字段值</p>
+<ul>
+<li>在CategoryServiceImpl中添加自定义的remove方法，删除之前判断是否关联菜品或者套餐</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> DishService dishService;</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> SetmealService setmealService;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 根据id删除，删除之前判断是否关联菜品或者套餐</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//判断当前分类是否关联了菜品</span></span><br><span class="line">    LambdaQueryWrapper&lt;Dish&gt; dishQueryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    dishQueryWrapper.eq(Dish::getCategoryId,id);</span><br><span class="line">    <span class="keyword">long</span> count = dishService.count(dishQueryWrapper);</span><br><span class="line">    <span class="keyword">if</span>(count&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> CustomException(<span class="string">&quot;当前分类关联了菜品，不能删除&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//判断当前分类是否关联了套餐</span></span><br><span class="line">    LambdaQueryWrapper&lt;Setmeal&gt; setmealQueryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    setmealQueryWrapper.eq(Setmeal::getCategoryId,id);</span><br><span class="line">    <span class="keyword">long</span> count1 = setmealService.count(setmealQueryWrapper);</span><br><span class="line">    <span class="keyword">if</span>(count1&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> CustomException(<span class="string">&quot;当前分类关联了套餐，不能删除&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//都没有关联</span></span><br><span class="line">    <span class="keyword">super</span>.removeById(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编写controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@DeleteMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;String&gt; <span class="title">delete</span><span class="params">(Long ids)</span></span>&#123;</span><br><span class="line">    log.info(<span class="string">&quot;删除分类&quot;</span>);</span><br><span class="line">    categoryService.remove(ids);</span><br><span class="line">    <span class="keyword">return</span> R.success(<span class="string">&quot;删除成功&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="十、文件上传下载"><a href="#十、文件上传下载" class="headerlink" title="十、文件上传下载"></a>十、文件上传下载</h1><h2 id="1-文件上传"><a href="#1-文件上传" class="headerlink" title="1. 文件上传"></a>1. 文件上传</h2><h3 id="前端介绍："><a href="#前端介绍：" class="headerlink" title="前端介绍："></a>前端介绍：</h3><p>文件上传时，对页面的form表单有如下要求:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">method=<span class="string">&quot;post&quot;</span>                     采用post方式提交数据</span><br><span class="line"></span><br><span class="line">enctype=<span class="string">&quot;multipart/form-data&quot;</span>     采用multipart格式上传文件</span><br><span class="line"></span><br><span class="line">type=<span class="string">&quot;file&quot;</span>                       使用input的file控件上传</span><br></pre></td></tr></table></figure>
+<p>这里我们采用Element ui封装的组件</p>
+<h3 id="后端介绍："><a href="#后端介绍：" class="headerlink" title="后端介绍："></a>后端介绍：</h3><p>服务端要接收客户端页面上传的文件，通常都会使用Apache的两个组件:</p>
+<p>commons-fileupload</p>
+<p>commons-io</p>
+<p>Spring框架在spring-web包中对文件上传进行了封装，大大简化了服务端代码，我们只需要在Controller的方法中声明一个MultipartFile类型的参数即可接收上传的文件</p>
+<p>配置路径上传</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">reggie:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">D:\\img\</span></span><br></pre></td></tr></table></figure>
+<p>上传图片实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;reggie.path&#125;&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String basePath;</span><br><span class="line"><span class="meta">@PostMapping(&quot;/upload&quot;)</span> <span class="comment">//MultipartFile名字要与前端form表单name一致</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;String&gt; <span class="title">upload</span><span class="params">(<span class="meta">@RequestParam(&quot;file&quot;)</span> MultipartFile file)</span></span>&#123;</span><br><span class="line">    <span class="comment">//获取原始文件名</span></span><br><span class="line">    String originalFilename = file.getOriginalFilename();</span><br><span class="line">    String random = UUID.randomUUID().toString();</span><br><span class="line">    String filename = random+originalFilename;</span><br><span class="line">    File dir = <span class="keyword">new</span> File(basePath);</span><br><span class="line">    <span class="keyword">if</span>(!dir.exists())&#123;</span><br><span class="line">        <span class="comment">//目录不存在则创建</span></span><br><span class="line">        log.info(<span class="string">&quot;创建文件夹&quot;</span>);</span><br><span class="line">        dir.mkdir();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        file.transferTo(<span class="keyword">new</span> File(basePath+filename));</span><br><span class="line">        <span class="comment">//创建目录对象</span></span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> R.success(filename);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-文件下载"><a href="#2-文件下载" class="headerlink" title="2. 文件下载"></a>2. 文件下载</h2><p>文件下载，也称为download，是指将文件从服务器传输到本地计算机的过程。</p>
+<p>通过浏览器进行文件下载，通常有两种表现形式:</p>
+<ul>
+<li>以附件形式下载，弹出保存对话框，将文件保存到指定磁盘目录</li>
+<li>直接在浏览器中打开</li>
+</ul>
+<p>通过浏览器进行文件下载，本质上就是服务端将文件以流的形式写回浏览器的过程。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/download&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">download</span><span class="params">(String name, HttpServletResponse response)</span></span>&#123;</span><br><span class="line">    FileInputStream fileInputStream = <span class="keyword">null</span>;</span><br><span class="line">    ServletOutputStream outputStream = <span class="keyword">null</span>;</span><br><span class="line">    response.setContentType(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        fileInputStream = <span class="keyword">new</span> FileInputStream(basePath+name);</span><br><span class="line">        outputStream = response.getOutputStream();</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="keyword">while</span> ((len = fileInputStream.read(bytes))&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            outputStream.write(bytes,<span class="number">0</span>,len);</span><br><span class="line">            outputStream.flush();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            fileInputStream.close();</span><br><span class="line">            outputStream.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="十一、新增菜品"><a href="#十一、新增菜品" class="headerlink" title="十一、新增菜品"></a>十一、新增菜品</h1><p>梳理一下新增菜品时前端页面和服务端的交互过程:</p>
+<p>1、页面(backend/page/food/add.html)发送ajax请求，请求服务端获取菜品分类数据并展示到下拉框中</p>
+<p>2、页面发送请求进行图片上传，请求服务端将图片保存到服务器</p>
+<p>3、页面发送请求进行图片下载，将上传的图片进行回显</p>
+<p>4、点击保存按钮，发送ajax请求，将菜品相关数据以json形式提交到服务端</p>
+<p>开发新增菜品功能，其实就是在服务端编写代码去处理前端页面发送的这4次请求即可。</p>
+<h2 id="编写获取分类list的方法"><a href="#编写获取分类list的方法" class="headerlink" title="编写获取分类list的方法"></a>编写获取分类list的方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/list&quot;)</span></span><br><span class="line"><span class="keyword">public</span> R&lt;List&lt;Category&gt;&gt; list(Category category)&#123;</span><br><span class="line">    LambdaQueryWrapper&lt;Category&gt; queryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.eq(category.getType()!=<span class="keyword">null</span>,Category::getType,category.getType())</span><br><span class="line">            .orderByAsc(Category::getSort)</span><br><span class="line">            .orderByDesc(Category::getCreateTime);</span><br><span class="line">    List&lt;Category&gt; list = categoryService.list(queryWrapper);</span><br><span class="line">    <span class="keyword">return</span> R.success(list);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="编写新增菜品方法"><a href="#编写新增菜品方法" class="headerlink" title="编写新增菜品方法"></a>编写新增菜品方法</h2><p>因为新增菜品传输的参数比较复杂，无法使用一个实体类接收，因此我们新建一个DTO类来接收参数</p>
+<p>DishDTO</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DishDTO</span> <span class="keyword">extends</span> <span class="title">Dish</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;DishFlavor&gt; flavors = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> String categoryName;</span><br><span class="line">    <span class="keyword">private</span> Integer copies;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为要操作多表，因此我们在Service层进行封装</p>
+<p><strong>注意：</strong>@Transactional需要在springboot启动类上添加注解@EnableTransactionManagement</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 添加菜品和菜品风味</span></span><br><span class="line"><span class="comment"> * 因为要操作多表，因此需要开启事务</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> dishDTO</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveWithFlavor</span><span class="params">(DishDTO dishDTO)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//保存菜品基本信息到菜品dish</span></span><br><span class="line">    <span class="keyword">this</span>.save(dishDTO);</span><br><span class="line">    Long id = dishDTO.getId();</span><br><span class="line">    List&lt;DishFlavor&gt; flavors = dishDTO.getFlavors();</span><br><span class="line">    flavors = flavors.stream().map((item)-&gt;&#123;</span><br><span class="line">        item.setDishId(id);</span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    &#125;).collect(Collectors.toList());</span><br><span class="line">    <span class="comment">//保存菜品口味到dish_flavor</span></span><br><span class="line">    dishFlavorService.saveBatch(flavors);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="十二、菜品分页"><a href="#十二、菜品分页" class="headerlink" title="十二、菜品分页"></a>十二、菜品分页</h1><p>梳理一下菜品分页查询时前端页面和服务端的交互过程:</p>
+<p>1、页面(backend/page/food/list.html)发送ajax请求，将分页查询参数(page、pageSize、name)提交到服务端，获取分页数据</p>
+<p>2、页面发送请求，请求服务端进行图片下载，用于页面图片展示</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/page&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;Page&gt; <span class="title">page</span><span class="params">(<span class="keyword">int</span> page,<span class="keyword">int</span> pageSize,String name)</span></span>&#123;</span><br><span class="line">    Page&lt;Dish&gt; dishPage = <span class="keyword">new</span> Page&lt;&gt;();</span><br><span class="line">    dishPage.setCurrent(page);</span><br><span class="line">    dishPage.setSize(pageSize);</span><br><span class="line">    LambdaQueryWrapper&lt;Dish&gt; queryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.like(name!=<span class="keyword">null</span>,Dish::getName,name)</span><br><span class="line">            .orderByDesc(Dish::getUpdateTime);</span><br><span class="line">    dishService.page(dishPage,queryWrapper);</span><br><span class="line">    <span class="keyword">return</span> R.success(dishPage);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码完成了简单的分页查询，但是菜品分类回显的是菜品的id，而不是前端需要的菜品分类名称</p>
+<p>为了解决这一问题，可以在DishDTO中添加categoryName字段，把Page<Dish>中的数据拷贝到Page<DishDTO></DishDTO></Dish></p>
+<p>并且同时给DishDTO中的categoryName字段设置对应的值</p>
+<h2 id="对象拷贝："><a href="#对象拷贝：" class="headerlink" title="对象拷贝："></a>对象拷贝：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//BeanUtils.copyProperties(源对象，拷贝对象，忽略的属性)</span></span><br><span class="line">BeanUtils.copyProperties(dishPage,dishDTOPage,<span class="string">&quot;records&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>改进：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/page&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;Page&gt; <span class="title">page</span><span class="params">(<span class="keyword">int</span> page,<span class="keyword">int</span> pageSize,String name)</span></span>&#123;</span><br><span class="line">    <span class="comment">//创建分页对象</span></span><br><span class="line">    Page&lt;Dish&gt; dishPage = <span class="keyword">new</span> Page&lt;&gt;();</span><br><span class="line">    <span class="comment">//创建DishDTO分页对象（拷贝dishPage数据，迎合前端数据要求，自定义菜品分类数据）</span></span><br><span class="line">    Page&lt;DishDTO&gt; dishDTOPage = <span class="keyword">new</span> Page&lt;&gt;();</span><br><span class="line">    <span class="comment">//设置分页条件</span></span><br><span class="line">    dishPage.setCurrent(page);</span><br><span class="line">    dishPage.setSize(pageSize);</span><br><span class="line">    LambdaQueryWrapper&lt;Dish&gt; queryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.like(name!=<span class="keyword">null</span>,Dish::getName,name)</span><br><span class="line">            .orderByDesc(Dish::getUpdateTime);</span><br><span class="line">    dishService.page(dishPage,queryWrapper);</span><br><span class="line">    <span class="comment">//对象拷贝</span></span><br><span class="line">    BeanUtils.copyProperties(dishPage,dishDTOPage,<span class="string">&quot;records&quot;</span>);</span><br><span class="line">    List&lt;Dish&gt; dishs = dishPage.getRecords();</span><br><span class="line">    <span class="comment">//设置分类id--分类名称的映射</span></span><br><span class="line">    List&lt;DishDTO&gt; dishDTOS = dishs.stream().map((item)-&gt;&#123;</span><br><span class="line">        DishDTO dishDTO = <span class="keyword">new</span> DishDTO();</span><br><span class="line">        <span class="comment">//获取分类id</span></span><br><span class="line">        Long categoryId = item.getCategoryId();</span><br><span class="line">        Category now = categoryService.getById(categoryId);</span><br><span class="line">        String nowcategory = now.getName();</span><br><span class="line">        dishDTO.setCategoryName(nowcategory);</span><br><span class="line">        BeanUtils.copyProperties(item,dishDTO);</span><br><span class="line">        <span class="keyword">return</span> dishDTO;</span><br><span class="line">    &#125;).collect(Collectors.toList());</span><br><span class="line">    dishDTOPage.setRecords(dishDTOS);</span><br><span class="line">    <span class="keyword">return</span> R.success(dishDTOPage);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="十三、修改菜品"><a href="#十三、修改菜品" class="headerlink" title="十三、修改菜品"></a>十三、修改菜品</h1><p>梳理一下修改菜品时前端页面( add.html）和服务端的交互过程:</p>
+<p>1、页面发送ajax请求，请求服务端获取分类数据，用于菜品分类下拉框中数据展示</p>
+<p>2、页面发送ajax请求，请求服务端，根据id查询当前菜品信息，用于菜品信息回显</p>
+<p>3、页面发送请求，请求服务端进行图片下载，用于页图片回显</p>
+<p>4、点击保存按钮，页面发送ajax请求，将修改后的菜品相关数据以json形式提交到服务端</p>
+<h2 id="查询菜品以及菜品口味回显"><a href="#查询菜品以及菜品口味回显" class="headerlink" title="查询菜品以及菜品口味回显"></a>查询菜品以及菜品口味回显</h2><ul>
+<li>在service中添加getByIdWithFlavor方法，查询菜品和菜品口味，封装DishDTO返回</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> DishDTO <span class="title">getByIdWithFlavor</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">    DishDTO dishDTO = <span class="keyword">new</span> DishDTO();</span><br><span class="line">    <span class="comment">//查询基础信息</span></span><br><span class="line">    Dish dish = <span class="keyword">this</span>.getById(id);</span><br><span class="line">    <span class="comment">//查询口味</span></span><br><span class="line">    LambdaQueryWrapper&lt;DishFlavor&gt; queryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.eq(DishFlavor::getDishId,dish.getId());</span><br><span class="line">    List&lt;DishFlavor&gt; flavors = dishFlavorService.list(queryWrapper);</span><br><span class="line">    <span class="comment">//设置dishDTO属性</span></span><br><span class="line">    BeanUtils.copyProperties(dish,dishDTO);</span><br><span class="line">    dishDTO.setFlavors(flavors);</span><br><span class="line">    <span class="keyword">return</span> dishDTO;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>controller层</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;DishDTO&gt; <span class="title">getById</span><span class="params">(<span class="meta">@PathVariable</span> Long id)</span></span>&#123;</span><br><span class="line">    DishDTO dishDTO = dishService.getByIdWithFlavor(id);</span><br><span class="line">    <span class="keyword">return</span> R.success(dishDTO);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="修改菜品和菜品口味"><a href="#修改菜品和菜品口味" class="headerlink" title="修改菜品和菜品口味"></a>修改菜品和菜品口味</h2><ul>
+<li>这里口味修改要一项一项对比，可以先删除后添加</li>
+<li>由于是多个sql操作，应该开启事务</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateWithFlavor</span><span class="params">(DishDTO dishDTO)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//更新dish基本信息</span></span><br><span class="line">    <span class="keyword">this</span>.updateById(dishDTO);</span><br><span class="line">    <span class="comment">//更新口味操作很复杂，可以先删除，再添加</span></span><br><span class="line">    <span class="comment">//删除</span></span><br><span class="line">    LambdaQueryWrapper&lt;DishFlavor&gt; queryWrapper = <span class="keyword">new</span> LambdaQueryWrapper&lt;&gt;();</span><br><span class="line">    queryWrapper.eq(DishFlavor::getDishId,dishDTO.getId());</span><br><span class="line">    dishFlavorService.remove(queryWrapper);</span><br><span class="line">    <span class="comment">//新增</span></span><br><span class="line">    List&lt;DishFlavor&gt; flavors = dishDTO.getFlavors();</span><br><span class="line">    flavors = flavors.stream().map((item)-&gt;&#123;</span><br><span class="line">        item.setDishId(dishDTO.getId());</span><br><span class="line">        <span class="keyword">return</span> item;</span><br><span class="line">    &#125;).collect(Collectors.toList());</span><br><span class="line">    dishFlavorService.saveBatch(flavors);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>controller层</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PutMapping</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> R&lt;String&gt; <span class="title">update</span><span class="params">(<span class="meta">@RequestBody</span> DishDTO dishDTO)</span></span>&#123;</span><br><span class="line">    dishService.updateWithFlavor(dishDTO);</span><br><span class="line">    <span class="keyword">return</span> R.success(<span class="string">&quot;修改菜品成功！&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2022/05/07/mybatis-plus/" rel="next" title="mybatis-plus学习">
+                <i class="fa fa-chevron-left"></i> mybatis-plus学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%99%BB%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">一、登录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%9F%BA%E7%A1%80%E7%99%BB%E5%BD%95%E9%80%BB%E8%BE%91"><span class="nav-number">1.1.</span> <span class="nav-text">1. 基础登录逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A3%80%E9%AA%8C%E6%98%AF%E5%90%A6%E7%99%BB%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">2. 添加过滤器检验是否登录</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%B7%BB%E5%8A%A0%E5%91%98%E5%B7%A5"><span class="nav-number">2.</span> <span class="nav-text">二、添加员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%91%98%E5%B7%A5%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-number">3.</span> <span class="nav-text">三、员工分页查询</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%B7%BB%E5%8A%A0mybatis-plus%E5%88%86%E9%A1%B5%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">1. 添加mybatis-plus分页配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%BC%96%E5%86%99%E5%88%86%E9%A1%B5controller"><span class="nav-number">3.2.</span> <span class="nav-text">2. 编写分页controller</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%90%AF%E7%94%A8%E6%88%96%E8%80%85%E7%A6%81%E7%94%A8%E5%91%98%E5%B7%A5%E8%B4%A6%E5%8F%B7"><span class="nav-number">4.</span> <span class="nav-text">四、启用或者禁用员工账号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">4.1.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E8%BF%99%E6%A0%B7%E7%BC%96%E5%86%99%E4%BF%AE%E6%94%B9%E5%A4%B1%E8%B4%A5"><span class="nav-number">4.2.</span> <span class="nav-text">问题：这样编写修改失败</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0json%E6%95%B0%E6%8D%AE%E6%98%A0%E5%B0%84%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">添加json数据映射器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E7%BC%96%E8%BE%91%E5%91%98%E5%B7%A5"><span class="nav-number">5.</span> <span class="nav-text">五、编辑员工</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%85%AC%E5%85%B1%E5%AD%97%E6%AE%B5%E7%9A%84%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85"><span class="nav-number">6.</span> <span class="nav-text">六、公共字段的自动填充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">6.1.</span> <span class="nav-text">问题分析：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="nav-number">6.2.</span> <span class="nav-text">初步代码实现：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%EF%BC%9A"><span class="nav-number">6.3.</span> <span class="nav-text">改进：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E8%A1%A5%E5%85%85%EF%BC%9A"><span class="nav-number">6.3.1.</span> <span class="nav-text">知识补充：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ThreadLocal"><span class="nav-number">6.3.1.1.</span> <span class="nav-text">ThreadLocal</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="nav-number">6.3.2.</span> <span class="nav-text">实现步骤:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%96%B0%E5%A2%9E%E5%88%86%E7%B1%BB"><span class="nav-number">7.</span> <span class="nav-text">七、新增分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E8%8F%9C%E5%93%81%E5%88%86%E7%B1%BB%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-number">8.</span> <span class="nav-text">八、菜品分类分页查询</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E8%8F%9C%E5%93%81%E5%88%86%E7%B1%BB%E5%88%A0%E9%99%A4"><span class="nav-number">9.</span> <span class="nav-text">九、菜品分类删除</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E9%9C%80%E6%B1%82%EF%BC%9A"><span class="nav-number">9.1.</span> <span class="nav-text">基础需求：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E4%B8%8B%E8%BD%BD"><span class="nav-number">10.</span> <span class="nav-text">十、文件上传下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="nav-number">10.1.</span> <span class="nav-text">1. 文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="nav-number">10.1.1.</span> <span class="nav-text">前端介绍：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E4%BB%8B%E7%BB%8D%EF%BC%9A"><span class="nav-number">10.1.2.</span> <span class="nav-text">后端介绍：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD"><span class="nav-number">10.2.</span> <span class="nav-text">2. 文件下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%96%B0%E5%A2%9E%E8%8F%9C%E5%93%81"><span class="nav-number">11.</span> <span class="nav-text">十一、新增菜品</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E8%8E%B7%E5%8F%96%E5%88%86%E7%B1%BBlist%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">11.1.</span> <span class="nav-text">编写获取分类list的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%96%B0%E5%A2%9E%E8%8F%9C%E5%93%81%E6%96%B9%E6%B3%95"><span class="nav-number">11.2.</span> <span class="nav-text">编写新增菜品方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E8%8F%9C%E5%93%81%E5%88%86%E9%A1%B5"><span class="nav-number">12.</span> <span class="nav-text">十二、菜品分页</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E6%8B%B7%E8%B4%9D%EF%BC%9A"><span class="nav-number">12.1.</span> <span class="nav-text">对象拷贝：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%93%81"><span class="nav-number">13.</span> <span class="nav-text">十三、修改菜品</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%8F%9C%E5%93%81%E4%BB%A5%E5%8F%8A%E8%8F%9C%E5%93%81%E5%8F%A3%E5%91%B3%E5%9B%9E%E6%98%BE"><span class="nav-number">13.1.</span> <span class="nav-text">查询菜品以及菜品口味回显</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%8F%9C%E5%93%81%E5%92%8C%E8%8F%9C%E5%93%81%E5%8F%A3%E5%91%B3"><span class="nav-number">13.2.</span> <span class="nav-text">修改菜品和菜品口味</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

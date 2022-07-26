@@ -102,7 +102,7 @@
 <meta property="og:image" content="http://example.com/2022/03/14/mybatis/14.png">
 <meta property="og:image" content="http://example.com/2022/03/14/mybatis/15.png">
 <meta property="article:published_time" content="2022-03-14T13:15:41.000Z">
-<meta property="article:modified_time" content="2022-03-23T04:12:10.731Z">
+<meta property="article:modified_time" content="2022-07-21T08:32:39.909Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="mybatis">
 <meta name="twitter:card" content="summary">
@@ -837,7 +837,7 @@
 &lt;!--配置经典数据库命名格式，到驼峰命名的转换--&gt;
 &lt;setting name=&quot;mapUnderscoreToCamelCase&quot; value=&quot;true&quot;/&gt;
 </code></pre><p>&lt;/settings&gt;</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![image-20220318151256485](13.png)</span><br><span class="line"></span><br><span class="line">### 12.3 标签</span><br><span class="line"></span><br><span class="line">### if标签,where标签</span><br><span class="line"></span><br><span class="line">* 需求：根据map传入的约束条件，动态的查询信息</span><br><span class="line"></span><br><span class="line">*where* 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，*where* 元素也会将它们去除。</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;select id=&quot;findAllByInput&quot; resultType=&quot;Blog&quot; parameterType=&quot;map&quot;&gt;</span><br><span class="line">    select * from blog</span><br><span class="line">    &lt;where&gt;</span><br><span class="line">        &lt;if test=&quot;title!=&#x27;&#x27; and title!=null&quot;&gt;</span><br><span class="line">            title = #&#123;title&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;author!=&#x27;&#x27; and author!=null&quot;&gt;</span><br><span class="line">            and author = #&#123;author&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![image-20220318151256485](mybatis/13.png)</span><br><span class="line"></span><br><span class="line">### 12.3 标签</span><br><span class="line"></span><br><span class="line">### if标签,where标签</span><br><span class="line"></span><br><span class="line">* 需求：根据map传入的约束条件，动态的查询信息</span><br><span class="line"></span><br><span class="line">*where* 元素只会在子元素返回任何内容的情况下才插入 “WHERE” 子句。而且，若子句的开头为 “AND” 或 “OR”，*where* 元素也会将它们去除。</span><br><span class="line"></span><br><span class="line">```xml</span><br><span class="line">&lt;select id=&quot;findAllByInput&quot; resultType=&quot;Blog&quot; parameterType=&quot;map&quot;&gt;</span><br><span class="line">    select * from blog</span><br><span class="line">    &lt;where&gt;</span><br><span class="line">        &lt;if test=&quot;title!=&#x27;&#x27; and title!=null&quot;&gt;</span><br><span class="line">            title = #&#123;title&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">        &lt;if test=&quot;author!=&#x27;&#x27; and author!=null&quot;&gt;</span><br><span class="line">            and author = #&#123;author&#125;</span><br><span class="line">        &lt;/if&gt;</span><br><span class="line">    &lt;/where&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="choose标签"><a href="#choose标签" class="headerlink" title="choose标签"></a>choose标签</h3><p>有时候，我们不想使用所有的条件，而只是想从多个条件中选择一个使用。针对这种情况，MyBatis 提供了 choose 元素，它有点像 Java 中的 switch 语句。</p>
@@ -1052,7 +1052,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1063,7 +1063,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1074,7 +1074,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

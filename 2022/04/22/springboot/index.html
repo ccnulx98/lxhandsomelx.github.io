@@ -99,18 +99,18 @@
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/14.png">
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/15.png">
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/16.png">
-<meta property="og:image" content="http://example.com/2022/04/22/springboot/daxue_document/myblog/source/_posts/springboot/23.md">
+<meta property="og:image" content="http://example.com/2022/04/22/springboot/23.png">
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/17.png">
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/18.png">
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/19.png">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7KtjyIb9NEaYlz0tCWSiboOYjMibiaov73iaTsiaWEPoArDcAB1Ooibx9uR5JxtacIuicHblEtUI9SrySX2A/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/20.png">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7IPEXZtUAUBhnSZvUmrPzbDUoiazZ6ehegLG4doZK0uSJHribIqwVKiaNibSaYZSgjZf4kGzhLdGrkzzw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="http://example.com/2022/04/22/springboot/24.png">
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/21.png">
 <meta property="og:image" content="http://example.com/2022/04/22/springboot/22.png">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7IPEXZtUAUBhnSZvUmrPzbDGcJRvdK3PtqHPAWYBBmpe1XBVjQJeiatU4vasEaxckHlOga1BV9RPaw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1">
+<meta property="og:image" content="http://example.com/2022/04/22/springboot/25.png">
 <meta property="article:published_time" content="2022-04-22T10:14:11.000Z">
-<meta property="article:modified_time" content="2022-05-07T15:00:03.270Z">
+<meta property="article:modified_time" content="2022-07-21T09:07:30.325Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary">
@@ -477,7 +477,7 @@
 Assert.notEmpty(configurations, &quot;No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct.&quot;);
 return configurations;
 </code></pre><p>}</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###  2.2.4 META-INF/spring.factories</span><br><span class="line"></span><br><span class="line">* 自动配置的核心文件：配置了自动配置类</span><br><span class="line"></span><br><span class="line">  ![image-20220425104537577](9.png)</span><br><span class="line"></span><br><span class="line">  ![image-20220425104620683](10.png)</span><br><span class="line"></span><br><span class="line">  **WebMvcAutoConfiguration**</span><br><span class="line"></span><br><span class="line">  我们在上面的自动配置类随便找一个打开看看，比如 ：WebMvcAutoConfiguration</span><br><span class="line"></span><br><span class="line">  ![图片](11.png)</span><br><span class="line"></span><br><span class="line">  可以看到这些一个个的都是JavaConfig配置类，而且都注入了一些Bean，可以找一些自己认识的类</span><br><span class="line"></span><br><span class="line">  所以，自动配置真正实现是从classpath中搜寻所有的META-INF/spring.factories配置文件 ，并将其中对应的 org.springframework.boot.autoconfigure. 包下的配置项，通过反射实例化为对应标注了 @Configuration的JavaConfig形式的IOC容器配置类 ， 然后将这些都汇总成为一个实例并加载到IOC容器中。</span><br><span class="line"></span><br><span class="line">  **结论：**</span><br><span class="line"></span><br><span class="line">  1. SpringBoot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值</span><br><span class="line"></span><br><span class="line">  2. 将这些值作为自动配置类导入容器 ， 自动配置类就生效 ， 帮我们进行自动配置工作；</span><br><span class="line"></span><br><span class="line">     ```java </span><br><span class="line">     @ConditionalOnxxx    主注解判断是否导入</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">###  2.2.4 META-INF/spring.factories</span><br><span class="line"></span><br><span class="line">* 自动配置的核心文件：配置了自动配置类</span><br><span class="line"></span><br><span class="line">  ![image-20220425104537577](springboot/9.png)</span><br><span class="line"></span><br><span class="line">  ![image-20220425104620683](springboot/10.png)</span><br><span class="line"></span><br><span class="line">  **WebMvcAutoConfiguration**</span><br><span class="line"></span><br><span class="line">  我们在上面的自动配置类随便找一个打开看看，比如 ：WebMvcAutoConfiguration</span><br><span class="line"></span><br><span class="line">  ![图片](springboot/11.png)</span><br><span class="line"></span><br><span class="line">  可以看到这些一个个的都是JavaConfig配置类，而且都注入了一些Bean，可以找一些自己认识的类</span><br><span class="line"></span><br><span class="line">  所以，自动配置真正实现是从classpath中搜寻所有的META-INF/spring.factories配置文件 ，并将其中对应的 org.springframework.boot.autoconfigure. 包下的配置项，通过反射实例化为对应标注了 @Configuration的JavaConfig形式的IOC容器配置类 ， 然后将这些都汇总成为一个实例并加载到IOC容器中。</span><br><span class="line"></span><br><span class="line">  **结论：**</span><br><span class="line"></span><br><span class="line">  1. SpringBoot在启动的时候从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值</span><br><span class="line"></span><br><span class="line">  2. 将这些值作为自动配置类导入容器 ， 自动配置类就生效 ， 帮我们进行自动配置工作；</span><br><span class="line"></span><br><span class="line">     ```java </span><br><span class="line">     @ConditionalOnxxx    主注解判断是否导入</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ol>
@@ -587,7 +587,7 @@ return configurations;
 <p><strong>@configurationProperties</strong>：默认从全局配置文件中获取值；</p>
 <ul>
 <li><p><strong>注意：</strong>使用@configurationProperties注解时可能会产生警告</p>
-<p><img src="/2022/04/22/springboot/daxue_document\myblog\source\_posts\springboot\23.md" alt="image-20220507223404793"></p>
+<p><img src="/2022/04/22/springboot/23.png" alt="image-20220507223404793"></p>
 <p>需要添加依赖</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">  </span><br></pre></td></tr></table></figure>
 </li>
@@ -645,7 +645,7 @@ return configurations;
 <p><strong>注意：如果yml和properties同时都配置了端口，并且没有激活其他环境 ， 默认会使用properties配置文件的！</strong></p>
 <h3 id="5-2-配置文件加载位置"><a href="#5-2-配置文件加载位置" class="headerlink" title="5.2 配置文件加载位置"></a>5.2 配置文件加载位置</h3><p><strong>外部加载配置文件的方式十分多，我们选择最常用的即可，在开发的资源文件中进行配置！</strong></p>
 <p>官方外部配置文件说明参考文档</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7IPEXZtUAUBhnSZvUmrPzbDUoiazZ6ehegLG4doZK0uSJHribIqwVKiaNibSaYZSgjZf4kGzhLdGrkzzw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="/2022/04/22/springboot/24.png" alt="图片"></p>
 <p>springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">优先级1：项目路径下的config文件夹配置文件优先级2：项目路径下配置文件优先级3：资源路径下的config文件夹配置文件优先级4：资源路径下配置文件</span><br></pre></td></tr></table></figure>
 <p>优先级由高到底，高优先级的配置会覆盖低优先级的配置；</p>
@@ -683,7 +683,7 @@ return configurations;
 <h3 id="了解：-Conditional"><a href="#了解：-Conditional" class="headerlink" title="了解：@Conditional"></a>了解：@Conditional</h3><p>了解完自动装配的原理后，我们来关注一个细节问题，<strong>自动配置类必须在一定的条件下才能生效；</strong></p>
 <p><strong>@Conditional派生注解（Spring注解版原生的@Conditional作用）</strong></p>
 <p>作用：必须是@Conditional指定的条件成立，才给容器中添加组件，配置配里面的所有内容才生效；</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7IPEXZtUAUBhnSZvUmrPzbDGcJRvdK3PtqHPAWYBBmpe1XBVjQJeiatU4vasEaxckHlOga1BV9RPaw/640?wx_fmt=png&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt="图片"></p>
+<p><img src="/2022/04/22/springboot/25.png" alt="图片"></p>
 <p><strong>那么多的自动配置类，必须在一定的条件下才能生效；也就是说，我们加载了这么多的配置类，但不是所有的都生效了。</strong></p>
 <p>我们怎么知道哪些自动配置类生效？</p>
 <p><strong>我们可以通过启用 debug=true属性；来让控制台打印自动配置报告，这样我们就可以很方便的知道哪些自动配置类生效；</strong></p>
@@ -816,7 +816,7 @@ return configurations;
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -827,7 +827,7 @@ return configurations;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -838,7 +838,7 @@ return configurations;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://example.com/2021/11/17/database-5/4.png">
 <meta property="og:image" content="http://example.com/2021/11/17/database-5/5.png">
 <meta property="article:published_time" content="2021-11-17T05:21:27.000Z">
-<meta property="article:modified_time" content="2022-05-05T02:13:31.186Z">
+<meta property="article:modified_time" content="2022-07-21T08:04:26.428Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="多表查询">
 <meta property="article:tag" content="事务">
@@ -456,7 +456,7 @@
 
   <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">子查询结果为多行多,可以视为一张临时的表，括号括起来，取别名后，与其他的表进行连接查询。</span><br><span class="line">eg:</span><br><span class="line"><span class="comment">-- 查询入职时间为2020/2/1号以后的员工姓名，薪水，入职时间，部门名称</span></span><br><span class="line"><span class="comment">-- 注意：时间可以直接和字符串进行比较</span></span><br><span class="line"><span class="keyword">select</span> </span><br><span class="line">	t2.name,t2.salary,t2.entry_time,t1.dname</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	dept t1,(<span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> emp <span class="keyword">where</span> entry_time<span class="operator">&gt;</span>&quot;2020-2-1&quot;) t2</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	t1.did<span class="operator">=</span>t2.dno;</span><br></pre></td></tr></table></figure>
 
-  ![](6.png)
+  ![](database-5/6.png)
 </code></pre><h3 id="二、练习"><a href="#二、练习" class="headerlink" title="二、练习"></a>二、练习</h3><ol>
 <li><p>查询，部门编号，部门名称，部门人数</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	t1.did,t1.dname,<span class="built_in">count</span>(t2.dno) sum</span><br><span class="line"><span class="keyword">from</span> </span><br><span class="line">	dept t1,emp t2</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	t1.did <span class="operator">=</span> t2.dno</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> </span><br><span class="line">	t2.dno;</span><br></pre></td></tr></table></figure>
@@ -589,7 +589,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">68</span>
+                  <span class="site-state-item-count">81</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -600,7 +600,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -611,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">72</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

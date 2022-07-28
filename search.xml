@@ -852,6 +852,9 @@
 <h3 id="5-点击new-SSH-key"><a href="#5-点击new-SSH-key" class="headerlink" title="5. 点击new SSH key"></a>5. 点击new SSH key</h3><p><img src="/2022/02/23/GitHub/31.png" alt></p>
 <h3 id="6-添加ssh别名"><a href="#6-添加ssh别名" class="headerlink" title="6. 添加ssh别名"></a>6. 添加ssh别名</h3><p>git remote add [别名] [ssh地址]</p>
 <p><img src="/2022/02/23/GitHub/32.png" alt></p>
+<h1 id="五、github被墙无法提交代码解决方案"><a href="#五、github被墙无法提交代码解决方案" class="headerlink" title="五、github被墙无法提交代码解决方案"></a>五、github被墙无法提交代码解决方案</h1><p>使用vpn代理</p>
+<p>git配置代理的方式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy &quot;127.0.0.1:8787&quot;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>GitHub</category>
